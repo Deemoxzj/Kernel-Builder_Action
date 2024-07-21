@@ -25,16 +25,12 @@ jobs:
 
     - name: Download kernel source
       run: |
-        wget https://android.googlesource.com/kernel/common/+archive/refs/heads/android-gs-akita-5.15-android14-d2.tar.gz kernel_workspace
-        tar -xvf android-gs-akita-5.15-android14-d2.tar.gz kernel_workspace
-        cd $GITHUB_WORKSPACE/kernel_workspace
-        cd kernel_platform
         git clone https://github.com/OnePlusOSS/android_kernel_modules_and_devicetree_oneplus_sm8550 -b oneplus/sm8550_u_14.0.0_ace3 kernel_workspace --depth=1
         cd $GITHUB_WORKSPACE/kernel_workspace
         cd kernel_platform
         git clone https://github.com/PoXiao777/android_kernel_oneplus_sm8550 common --depth=1
-        wget https://github.com/PoXiao777/Kernel-Builder_Action/raw/main/patches/test_defconfig
-        mv test_defconfig common/arch/arm64/configs/gki_defconfig
+        wget https://github.com/PoXiao777/Kernel-Builder_Action/raw/main/patches/test2_defconfig
+        mv test2_defconfig common/arch/arm64/configs/gki_defconfig
         
     - name: Download Clang-aosp
       run: |
