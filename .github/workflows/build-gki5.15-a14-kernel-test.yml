@@ -75,7 +75,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Image
-        path: $GITHUB_WORKSPACE/kernel_workspace/out/arch/arm64/boot/Image
+        path: kernel_workspace/out/arch/arm64/boot/Image
 
     - name: Upload Modules
       uses: actions/upload-artifact@v4
