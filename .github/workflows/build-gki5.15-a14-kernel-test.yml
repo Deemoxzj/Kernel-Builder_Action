@@ -27,7 +27,7 @@ jobs:
       run: |
         wget -P $GITHUB_WORKSPACE/kernel_workspace https://android.googlesource.com/kernel/common/+archive/refs/heads/android-gs-akita-5.15-android14-d2.tar.gz
         cd $GITHUB_WORKSPACE/kernel_workspace
-        tar -xvf android-gs-akita-5.15-android14-d2.tar.gz $GITHUB_WORKSPACE/kernel_workspace/
+        tar -xvf android-gs-akita-5.15-android14-d2.tar.gz -C $GITHUB_WORKSPACE/kernel_workspace
         wget https://github.com/PoXiao777/Kernel-Builder_Action/raw/main/patches/test_defconfig
         mv test_defconfig $GITHUB_WORKSPACE/kernel_workspace/common/arch/arm64/configs/gki_defconfig
         
