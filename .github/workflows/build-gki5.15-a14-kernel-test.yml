@@ -81,10 +81,10 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Kmd-${{ env.BUILD_TIME }}
-        path: $GITHUB_WORKSPACE/kernel_workspace/out/lib/modules/*
+        path: kernel_workspace/out/lib/modules/*
 
     - name: Upload AnyKernel3
       uses: actions/upload-artifact@v4
       with:
         name: AK3-deemo-A14-${{ env.BUILD_TIME }}
-        path: $GITHUB_WORKSPACE/kernel_workspace/AnyKernel3/*
+        path: kernel_workspace/AnyKernel3/*
