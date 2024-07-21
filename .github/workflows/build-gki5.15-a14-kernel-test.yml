@@ -25,7 +25,7 @@ jobs:
 
     - name: Download kernel source
       run: |
-        cd kernel_workspace
+        cd $GITHUB_WORKSPACE/kernel_workspace
         repo init -u git://mirrors.ustc.edu.cn/aosp/kernel/manifest -b common-android13-5.15
         repo sync
         cd ..
