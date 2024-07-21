@@ -25,7 +25,7 @@ jobs:
 
     - name: Download kernel source
       run: |
-        wget https://android.googlesource.com/kernel/common/+archive/refs/heads/android-gs-akita-5.15-android14-d2.tar.gz kernel_workspace
+        wget https://android.googlesource.com/kernel/common/+archive/refs/heads/android-gs-akita-5.15-android14-d2.tar.gz $GITHUB_WORKSPACE/kernel_workspace
         cd $GITHUB_WORKSPACE/kernel_workspace
         tar -xvf android-gs-akita-5.15-android14-d2.tar.gz
         #git clone https://github.com/PoXiao777/android_kernel_oneplus_sm8550 common --depth=1
