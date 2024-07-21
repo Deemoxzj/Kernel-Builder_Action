@@ -25,12 +25,9 @@ jobs:
 
     - name: Download kernel source
       run: |
+        wget https://android.googlesource.com/kernel/common/+archive/refs/heads/android-gs-akita-5.15-android14-d2.tar.gz kernel_workspace
         cd $GITHUB_WORKSPACE/kernel_workspace
-        repo init -u git://mirrors.ustc.edu.cn/aosp/kernel/manifest -b common-android13-5.15
-        repo sync
-        cd ..
-        cd $GITHUB_WORKSPACE/kernel_workspace
-        cd kernel_platform
+        tar -xvf android-gs-akita-5.15-android14-d2.tar.gz
         #git clone https://github.com/PoXiao777/android_kernel_oneplus_sm8550 common --depth=1
         wget https://github.com/PoXiao777/Kernel-Builder_Action/raw/main/patches/test_defconfig
         mv test_defconfig common/arch/arm64/configs/gki_defconfig
@@ -45,8 +42,8 @@ jobs:
     - name: Build kernel
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace
-        KERNEL_DIR=./kernel_platform/common
-        OUT_DIR=../../out
+        KERNEL_DIR=$GITHUB_WORKSPACE/kernel_workspace/common
+        OUT_DIR=$GITHUB_WORKSPACE/kernel_workspace/out
         DEFCONFIG="gki_defconfig"
         LTO=thin
         export PATH=$GITHUB_WORKSPACE/kernel_workspace/clang-aosp/bin:$PATH
