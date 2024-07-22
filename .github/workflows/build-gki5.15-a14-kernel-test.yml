@@ -71,20 +71,8 @@ jobs:
         git clone https://github.com/Kernel-SU/AnyKernel3 --depth=1 AnyKernel3
         cp $GITHUB_WORKSPACE/kernel_workspace/out/arch/arm64/boot/Image AnyKernel3/
 
-    - name: Upload Image
-      uses: actions/upload-artifact@v4
-      with:
-        name: Image
-        path: kernel_workspace/out/arch/arm64/boot/Image
-
-    - name: Upload Modules
-      uses: actions/upload-artifact@v4
-      with:
-        name: Kmd-${{ env.BUILD_TIME }}
-        path: kernel_workspace/out/lib/modules/*
-
     - name: Upload AnyKernel3
       uses: actions/upload-artifact@v4
       with:
         name: AK3-deemo-A14-${{ env.BUILD_TIME }}
-        path: kernel_workspace/AnyKernel3/*
+        path: $GITHUB_WORKSPACE/kernel_workspace/AnyKernel3/*
